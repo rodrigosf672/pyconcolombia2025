@@ -1,0 +1,195 @@
+---
+title: "Books to Scrape Performance Results"
+format: html
+execute:
+  echo: false
+  warning: true
+  error: true
+jupyter: python3
+---
+
+<style>
+.scroll-table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+</style>
+
+```{python}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import json
+from pathlib import Path
+from scipy.stats import ttest_ind
+from IPython.display import display, HTML
+
+# Load all JSON files and tag them
+def load_json(file):
+    with open(file) as f:
+        data = json.load(f)
+    df = pd.DataFrame(data)
+    df["Source"] = file.stem
+    return df
+
+files = [
+    Path("q1a-bts-pw.json"),
+    Path("q1b-bts-pw.json"),
+    Path("q2a-bts-pw.json"),
+    Path("q2b-bts-pw.json"),
+]
+
+df = pd.concat([load_json(f) for f in files], ignore_index=True)
+
+# Add labels
+df["Caching"] = df["Source"].apply(lambda x: "No Caching" if "q1" in x else "Caching")
+df["Navigation"] = df["Source"].apply(lambda x: "Clicking" if "a" in x else "Direct Link")
+
+# Round load times to 2 decimals
+df["Load Time (ms)"] = df["Load Time (ms)"].round(2)
+```
+
+---
+
+## Question 1: Impact of Navigation Method
+
+```{python}
+sns.boxplot(data=df, x="Navigation", y="Load Time (ms)")
+plt.title("Load Time by Navigation Method")
+plt.ylabel("Load Time (ms)")
+plt.xlabel("Navigation Method")
+plt.show()
+```
+
+```{python}
+clicking = df[df["Navigation"] == "Clicking"]["Load Time (ms)"]
+direct = df[df["Navigation"] == "Direct Link"]["Load Time (ms)"]
+t_stat, p_val = ttest_ind(clicking, direct, equal_var=False)
+display(HTML(f"<p><strong>T-statistic:</strong> {round(float(t_stat), 3)}<br><strong>P-value:</strong> {round(float(p_val), 5)}</p>"))
+```
+
+---
+
+## Question 2: Caching Impact within Navigation Methods
+
+### Clicking Navigation
+
+```{python}
+df_click = df[df["Navigation"] == "Clicking"]
+
+sns.boxplot(data=df_click, x="Caching", y="Load Time (ms)")
+plt.title("Load Time (Clicking Navigation): Caching vs. No Caching")
+plt.ylabel("Load Time (ms)")
+plt.xlabel("Caching")
+plt.show()
+```
+
+```{python}
+click_cache = df_click[df_click["Caching"] == "Caching"]["Load Time (ms)"]
+click_no_cache = df_click[df_click["Caching"] == "No Caching"]["Load Time (ms)"]
+
+t_stat_click, p_val_click = ttest_ind(click_cache, click_no_cache, equal_var=False)
+display(HTML(f"<p><strong>T-statistic:</strong> {round(float(t_stat_click), 3)}<br><strong>P-value:</strong> {round(float(p_val_click), 5)}</p>"))
+```
+
+### Direct Link Navigation
+
+```{python}
+df_direct = df[df["Navigation"] == "Direct Link"]
+
+sns.boxplot(data=df_direct, x="Caching", y="Load Time (ms)")
+plt.title("Load Time (Direct Navigation): Caching vs. No Caching")
+plt.ylabel("Load Time (ms)")
+plt.xlabel("Caching")
+plt.show()
+```
+
+```{python}
+direct_cache = df_direct[df_direct["Caching"] == "Caching"]["Load Time (ms)"]
+direct_no_cache = df_direct[df_direct["Caching"] == "No Caching"]["Load Time (ms)"]
+
+t_stat_direct, p_val_direct = ttest_ind(direct_cache, direct_no_cache, equal_var=False)
+display(HTML(f"<p><strong>T-statistic:</strong> {round(float(t_stat_direct), 3)}<br><strong>P-value:</strong> {round(float(p_val_direct), 5)}</p>"))
+```
+
+---
+
+## Summary
+
+```{python}
+pd.set_option("display.max_rows", None)
+summary = df.groupby(["Navigation", "Caching"])["Load Time (ms)"].describe()[["mean", "std", "min", "max", "count"]].round(2)
+display(HTML(summary.to_html(classes="scroll-table", notebook=True)))
+```
+
+```{python}
+from IPython.display import display, HTML
+summary = (
+    df.groupby("Books Total").agg({
+        "Load Time (ms)": ["mean", "median"],
+        "Category": "first"
+    })
+    .round(2)
+)
+html_table = f"""
+<div style="max-height: 300px; overflow-y: auto; font-size: 0.9em;">
+  {summary.to_html(classes="table table-striped", notebook=True)}
+</div>
+"""
+display(HTML(html_table))
+```
+
+
+## Exploratory Data Analysis: Does Number of Books for Category Affect Load Time?
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+import json
+from pathlib import Path
+
+def analyze_json(path):
+    with open(path, "r") as f:
+        data = json.load(f)
+    df = pd.DataFrame(data)
+    df["Source"] = path.stem
+
+    print(f"\nSummary Statistics for {path.stem}")
+    display(df.describe())
+
+    corr_value = df[["Books Total", "Load Time (ms)"]].corr().iloc[0, 1]
+    print(f"Correlation between Books Total and Load Time (ms): {corr_value:.2f}")
+
+
+    # Scatter Plot
+    plt.figure(figsize=(10, 6))
+    plt.scatter(df["Books Total"], df["Load Time (ms)"], alpha=0.7)
+    plt.title(f"Total Books vs. Load Time — {path.stem}")
+    plt.xlabel("Total Books in Category")
+    plt.ylabel("Load Time (ms)")
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+    # Top 10 slowest categories
+    slowest = df.sort_values(by="Load Time (ms)", ascending=False).head(10)
+    plt.figure(figsize=(12, 6))
+    plt.barh(slowest["Category"], slowest["Load Time (ms)"], color="coral")
+    plt.xlabel("Load Time (ms)")
+    plt.title(f"Top 10 Slowest Categories — {path.stem}")
+    plt.gca().invert_yaxis()
+    plt.tight_layout()
+    plt.show()
+
+# Run analysis for each file
+paths = [
+    Path("q1a-bts-pw.json"),
+    Path("q1b-bts-pw.json"),
+    Path("q2a-bts-pw.json"),
+    Path("q2b-bts-pw.json"),
+]
+
+for path in paths:
+    analyze_json(path)
+```

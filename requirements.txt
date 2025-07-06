@@ -1,0 +1,5 @@
+locust
+matplotlib
+pandas
+playwright
+seaborn

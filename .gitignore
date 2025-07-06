@@ -1,0 +1,7 @@
+*.png
+*.json
+*.csv
+__pycache__/
+.quarto/
+books_performance_files
+venv/

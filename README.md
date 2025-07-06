@@ -41,6 +41,8 @@ By the end of this session, you will:
 
 ## Requirements
 
+### 💡 Tip: Install [VS Code](https://code.visualstudio.com/) (for running Playwright and Locust scripts) and [Positron](https://positron.posit.co/download.html) (for data analysis)
+
 ### 1. Install Python packages
 
 Install all required dependencies using:

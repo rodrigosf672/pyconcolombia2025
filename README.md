@@ -122,9 +122,6 @@ Use the provided `books-performance.qmd` Quarto notebook to:
 ## Author
 
 [Rodrigo Silva Ferreira](https://www.linkedin.com/in/rsf309/)
-QA Engineer & Data Enthusiast  
-Passionate about using data to understand and improve the world.
-
 ---
 
 ## Feedback & Contributions

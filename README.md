@@ -41,9 +41,15 @@ By the end of this session, you will:
 
 ## Requirements
 
-### 💡 Tip: Install [VS Code](https://code.visualstudio.com/) (for running Playwright and Locust scripts) and [Positron](https://positron.posit.co/download.html) (for data analysis)
+### 💡 Tip: Install [VS Code](https://code.visualstudio.com/) (for running Playwright and Locust scripts) and [Positron](https://positron.posit.co/download.html) (for data analysis).
 
-### 1. Install Python packages
+### 1. Create and activate your virtual environment
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+### 2. Install Python packages
 
 Install all required dependencies using:
 
@@ -61,7 +67,7 @@ playwright
 seaborn
 ```
 
-### 2. Install Playwright browser binaries
+### 3. Install Playwright browser binaries
 
 After installing the Playwright package, you must install the browser binaries:
 

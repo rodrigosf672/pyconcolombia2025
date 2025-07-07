@@ -1,0 +1,247 @@
+[
+  {
+    "Category": "Travel",
+    "Books Total": 11,
+    "Load Time (ms)": 169.13
+  },
+  {
+    "Category": "Mystery",
+    "Books Total": 32,
+    "Load Time (ms)": 174.29
+  },
+  {
+    "Category": "Historical Fiction",
+    "Books Total": 26,
+    "Load Time (ms)": 174.42
+  },
+  {
+    "Category": "Sequential Art",
+    "Books Total": 75,
+    "Load Time (ms)": 172.91
+  },
+  {
+    "Category": "Classics",
+    "Books Total": 19,
+    "Load Time (ms)": 174.2
+  },
+  {
+    "Category": "Philosophy",
+    "Books Total": 11,
+    "Load Time (ms)": 172.63
+  },
+  {
+    "Category": "Romance",
+    "Books Total": 35,
+    "Load Time (ms)": 175.36
+  },
+  {
+    "Category": "Womens Fiction",
+    "Books Total": 17,
+    "Load Time (ms)": 179.53
+  },
+  {
+    "Category": "Fiction",
+    "Books Total": 65,
+    "Load Time (ms)": 173.13
+  },
+  {
+    "Category": "Childrens",
+    "Books Total": 29,
+    "Load Time (ms)": 178.64
+  },
+  {
+    "Category": "Religion",
+    "Books Total": 7,
+    "Load Time (ms)": 169.62
+  },
+  {
+    "Category": "Nonfiction",
+    "Books Total": 110,
+    "Load Time (ms)": 174.17
+  },
+  {
+    "Category": "Music",
+    "Books Total": 13,
+    "Load Time (ms)": 171.12
+  },
+  {
+    "Category": "Default",
+    "Books Total": 152,
+    "Load Time (ms)": 168.05
+  },
+  {
+    "Category": "Science Fiction",
+    "Books Total": 16,
+    "Load Time (ms)": 171.66
+  },
+  {
+    "Category": "Sports and Games",
+    "Books Total": 5,
+    "Load Time (ms)": 168.73
+  },
+  {
+    "Category": "Fantasy",
+    "Books Total": 48,
+    "Load Time (ms)": 172.81
+  },
+  {
+    "Category": "New Adult",
+    "Books Total": 6,
+    "Load Time (ms)": 171.57
+  },
+  {
+    "Category": "Young Adult",
+    "Books Total": 54,
+    "Load Time (ms)": 175.05
+  },
+  {
+    "Category": "Science",
+    "Books Total": 14,
+    "Load Time (ms)": 180.9
+  },
+  {
+    "Category": "Poetry",
+    "Books Total": 19,
+    "Load Time (ms)": 171.08
+  },
+  {
+    "Category": "Paranormal",
+    "Books Total": 1,
+    "Load Time (ms)": 175.13
+  },
+  {
+    "Category": "Art",
+    "Books Total": 8,
+    "Load Time (ms)": 171.28
+  },
+  {
+    "Category": "Psychology",
+    "Books Total": 7,
+    "Load Time (ms)": 175.41
+  },
+  {
+    "Category": "Autobiography",
+    "Books Total": 9,
+    "Load Time (ms)": 175.32
+  },
+  {
+    "Category": "Parenting",
+    "Books Total": 1,
+    "Load Time (ms)": 179.42
+  },
+  {
+    "Category": "Adult Fiction",
+    "Books Total": 1,
+    "Load Time (ms)": 170.59
+  },
+  {
+    "Category": "Humor",
+    "Books Total": 10,
+    "Load Time (ms)": 187.92
+  },
+  {
+    "Category": "Horror",
+    "Books Total": 17,
+    "Load Time (ms)": 177.6
+  },
+  {
+    "Category": "History",
+    "Books Total": 18,
+    "Load Time (ms)": 177.29
+  },
+  {
+    "Category": "Food and Drink",
+    "Books Total": 30,
+    "Load Time (ms)": 183.61
+  },
+  {
+    "Category": "Christian Fiction",
+    "Books Total": 6,
+    "Load Time (ms)": 196.7
+  },
+  {
+    "Category": "Business",
+    "Books Total": 12,
+    "Load Time (ms)": 176.43
+  },
+  {
+    "Category": "Biography",
+    "Books Total": 5,
+    "Load Time (ms)": 176.11
+  },
+  {
+    "Category": "Thriller",
+    "Books Total": 11,
+    "Load Time (ms)": 174.12
+  },
+  {
+    "Category": "Contemporary",
+    "Books Total": 3,
+    "Load Time (ms)": 176.39
+  },
+  {
+    "Category": "Spirituality",
+    "Books Total": 6,
+    "Load Time (ms)": 178.1
+  },
+  {
+    "Category": "Academic",
+    "Books Total": 1,
+    "Load Time (ms)": 174.58
+  },
+  {
+    "Category": "Self Help",
+    "Books Total": 5,
+    "Load Time (ms)": 175.71
+  },
+  {
+    "Category": "Historical",
+    "Books Total": 2,
+    "Load Time (ms)": 174.69
+  },
+  {
+    "Category": "Christian",
+    "Books Total": 3,
+    "Load Time (ms)": 175.73
+  },
+  {
+    "Category": "Suspense",
+    "Books Total": 1,
+    "Load Time (ms)": 172.59
+  },
+  {
+    "Category": "Short Stories",
+    "Books Total": 1,
+    "Load Time (ms)": 176.4
+  },
+  {
+    "Category": "Novels",
+    "Books Total": 1,
+    "Load Time (ms)": 182.47
+  },
+  {
+    "Category": "Health",
+    "Books Total": 4,
+    "Load Time (ms)": 173.31
+  },
+  {
+    "Category": "Politics",
+    "Books Total": 3,
+    "Load Time (ms)": 177.55
+  },
+  {
+    "Category": "Cultural",
+    "Books Total": 1,
+    "Load Time (ms)": 175.33
+  },
+  {
+    "Category": "Erotica",
+    "Books Total": 1,
+    "Load Time (ms)": 173.36
+  },
+  {
+    "Category": "Crime",
+    "Books Total": 1,
+    "Load Time (ms)": 170.21
+  }
+]

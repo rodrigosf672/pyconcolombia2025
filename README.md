@@ -2,6 +2,8 @@
 
 Welcome to this brains-on workshop exploring two powerful tools for web performance testing: **Playwright** and **Locust**. Through guided exercises, participants will simulate user interactions and load scenarios to evaluate the performance of real websites.
 
+![First slide of workshop](image.png)
+
 ---
 
 ## Workshop Objectives
